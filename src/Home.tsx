@@ -21,10 +21,6 @@ export default function Home() {
                 }}>Pets
                 </button>
                 <button className="btn btn-primary" onClick={() => {
-                    navigate('/authors')
-                }}>Authors
-                </button>
-                <button className="btn btn-primary" onClick={() => {
                     navigate('/')
                 }}>Home
                 </button>

@@ -7,28 +7,27 @@ export type PetIdParameter = {
 }
 
 export interface Pet {
-    id: number
-    title: string
-    description: string
-    pageCount: number
-    excerpt: string
-    publishDate: string
+    id: string
+    name: string
+    breed: string
+    imgur1: string
+    sold: boolean
 }
 
 export default function PetDetails() {
 
     const params = useParams<PetIdParameter>();
     const [allPets, setAllPets] = useAtom(AllPetsAtom)
-    const pet = allPets.find(b => b.id == Number.parseInt(params.petId!))
+    const pet = allPets.find(b => b.id == (params.petId!))
 
 
     return <div>
 
         <button onClick={() => {
             const duplicate = [...allPets];
-            const index = duplicate.findIndex(b => b.id == Number.parseInt(params.petId!));
+            const index = duplicate.findIndex(b => b.id == (params.petId!));
             const pet = duplicate[index];
-            pet.title = "this is a new title";
+            pet.name = "this is a new name";
             duplicate[index] = pet;
             setAllPets(duplicate);
         }} >Click to change Pet name</button>
