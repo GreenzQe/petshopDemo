@@ -2,6 +2,7 @@ import {useNavigate} from "react-router";
 import {AllPetsAtom} from "./PetAtom.ts";
 import {useAtom} from "jotai";
 
+
 export default function PetsOverview() {
     const [allPets, ] = useAtom(AllPetsAtom)
     const navigate = useNavigate();
@@ -16,7 +17,9 @@ export default function PetsOverview() {
                         navigate('/pet/' + pet.id)
                     }}>{pet.name}
                     <div>
-                        <img src={pet.imgur1}/>
+                        <img src={pet.imgurl}
+                        width={128}
+                        height={100}/>
                     </div>
                     </button>
                 </div>

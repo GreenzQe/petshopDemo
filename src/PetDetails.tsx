@@ -10,7 +10,7 @@ export interface Pet {
     id: string
     name: string
     breed: string
-    imgur1: string
+    imgurl: string
     sold: boolean
 }
 
@@ -30,10 +30,33 @@ export default function PetDetails() {
             pet.name = "this is a new name";
             duplicate[index] = pet;
             setAllPets(duplicate);
-        }} >Click to change Pet name</button>
+        }}>Click to change Pet name
+        </button>
 
         {
-            JSON.stringify(pet)
+            <div className="card lg:card-side bg-base-100 shadow-sm">
+                <figure>
+                    <img
+                        src={pet?.imgurl}
+                        width={300}
+                        height={200}
+                        alt={pet?.name}/>
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">{pet?.name}</h2>
+                    <p>Breed: {pet?.breed}</p>
+                    <p>
+                        Sold: {
+                        (pet?.sold) ? <span className="text-success">Yes</span> : <span className="text-error">No</span>
+
+                    }  </p>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-primary">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+
         }
 
     </div>
