@@ -1,8 +1,8 @@
 import './App.css'
 import {createBrowserRouter, RouterProvider} from "react-router";
 import Home from "./Home.tsx";
-import BookDetails from "./BookDetails.tsx";
-import BooksOverview from "./BooksOverview.tsx";
+import PetDetails from "./PetDetails.tsx";
+import PetsOverview from "./PetsOverview.tsx";
 import AuthorsOverview from "./Authors.tsx";
 import {useInitializeDataForApplication} from "./useInitializeDataForApplication.tsx";
 
@@ -20,12 +20,12 @@ function App() {
                     element: <Home/>,
                     children: [
                         {
-                            path: '/books',
-                            element: <BooksOverview/>
+                            path: '/pets',
+                            element: <PetsOverview/>
                         },
                         {
-                            path: '/book/:bookId',
-                            element: <BookDetails/>
+                            path: '/pet/:petId',
+                            element: <PetDetails/>
                         },
                         {
                             path: '/authors',

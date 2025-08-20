@@ -1,6 +1,6 @@
 import {atom} from "jotai";
-import type {Book} from "./BookDetails.tsx";
+import type {Pet} from "./PetDetails.tsx";
 import type {Author} from "./Authors.tsx";
 
-export const AllBooksAtom = atom<Book[]>([])
+export const AllPetsAtom = atom<Pet[]>([])
 export const AllAuthorsAtom = atom<Author[]>([])

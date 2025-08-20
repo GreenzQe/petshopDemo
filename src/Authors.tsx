@@ -1,5 +1,5 @@
 import {useAtom} from "jotai";
-import {AllAuthorsAtom} from "./BookAtom.ts";
+import {AllAuthorsAtom} from "./PetAtom.ts";
 
 export interface Author {
     id: number

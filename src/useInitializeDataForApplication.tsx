@@ -1,17 +1,17 @@
 import {useAtom} from "jotai";
-import {AllAuthorsAtom, AllBooksAtom} from "./BookAtom.ts";
+import {AllAuthorsAtom, AllPetsAtom} from "./PetAtom.ts";
 import {useEffect} from "react";
 
 export function useInitializeDataForApplication() {
 
-    const [, setAllBooks] = useAtom(AllBooksAtom)
+    const [, setAllPets] = useAtom(AllPetsAtom)
     const [, setAllAuthors] = useAtom(AllAuthorsAtom)
 
     useEffect(() => {
         fetch('https://fakerestapi.azurewebsites.net/api/v1/Books')
             .then(result => {
-                result.json().then(allBooks => {
-                    setAllBooks(allBooks)
+                result.json().then(allPets => {
+                    setAllPets(allPets)
                 })
             })
         fetch('https://fakerestapi.azurewebsites.net/api/v1/Authors').then(result => {
