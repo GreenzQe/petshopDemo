@@ -21,25 +21,13 @@ export default function PetDetails() {
     const pet = allPets.find(b => b.id == (params.petId!))
 
 
-    return <div>
-
-        <button onClick={() => {
-            const duplicate = [...allPets];
-            const index = duplicate.findIndex(b => b.id == (params.petId!));
-            const pet = duplicate[index];
-            pet.name = "this is a new name";
-            duplicate[index] = pet;
-            setAllPets(duplicate);
-        }}>Click to change Pet name
-        </button>
+    return <div className="flex justify-center items-center ">
 
         {
-            <div className="card lg:card-side bg-base-100 shadow-sm">
+            <div className="card bg-base-100 w-96 shadow-sm" >
                 <figure>
                     <img
                         src={pet?.imgurl}
-                        width={300}
-                        height={200}
                         alt={pet?.name}/>
                 </figure>
                 <div className="card-body">
