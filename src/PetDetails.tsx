@@ -17,7 +17,7 @@ export interface Pet {
 export default function PetDetails() {
 
     const params = useParams<PetIdParameter>();
-    const [allPets, setAllPets] = useAtom(AllPetsAtom)
+    const [allPets] = useAtom(AllPetsAtom)
     const pet = allPets.find(b => b.id == (params.petId!))
 
 
