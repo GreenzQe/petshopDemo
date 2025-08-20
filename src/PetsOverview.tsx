@@ -14,7 +14,11 @@ export default function PetsOverview() {
                 return <div key={pet.id!}>
                     <button onClick={() => {
                         navigate('/pet/' + pet.id)
-                    }}>{pet.name}</button>
+                    }}>{pet.name}
+                    <div>
+                        <img src={pet.imgur1}/>
+                    </div>
+                    </button>
                 </div>
             })
         }
