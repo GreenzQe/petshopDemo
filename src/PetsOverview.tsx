@@ -13,16 +13,18 @@ export default function PetsOverview() {
         {
             allPets.map(pet => {
                 return <div key={pet.id!}>
-                    <button onClick={() => {
+                    <br></br>
+                    <button className="card-xs bg-base-300 shadow-sm" onClick={() => {
                         navigate('/pet/' + pet.id)
-                    }}>{pet.name}
+                    }}>
                     <div>
                         <img src={pet.imgurl}
                         width={128}
                         height={100}/>
-                    </div>
+                    </div>{pet.name}
                     </button>
                 </div>
+
             })
         }
     </div>

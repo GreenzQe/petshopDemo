@@ -29,7 +29,6 @@ export default function Home() {
                 if (response.ok) {
                     const newPet = await response.json();
                     setAllPets((pets: Pet[]) => [...pets, newPet]);
-                    console.log("ello");
                     toast.success("Pet created successfully.");
                 } else {
                     toast.error("Failed to create pet.");
@@ -51,7 +50,7 @@ export default function Home() {
                     <button className="btn btn-secondary" onClick={() => navigate(-1)}>
                         Go back
                     </button>
-                    <button className="btn btn-primary" onClick={() => navigate('/pets')}>
+                    <button className="btn btn-primary mx-5" onClick={() => navigate('/pets')}>
                         Pets
                     </button>
                     <button className="btn btn-primary" onClick={() => navigate('/')}>
@@ -63,6 +62,7 @@ export default function Home() {
                 <div className="drawer">
                     <input id="my-drawer" type="checkbox" className="drawer-toggle"/>
                     <div className="drawer-content">
+                        <br/>
                         <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
                             Add new pet
                         </label>
@@ -102,7 +102,11 @@ export default function Home() {
                                     onChange={e => setImgurl(e.target.value)}
                                 />
                             </li>
+                            <br/>
+                            <li>
                             <button onClick={handleCreate}>Add Pet</button>
+                            </li>
+                            <br/>
                         </ul>
                     </div>
                 </div>
