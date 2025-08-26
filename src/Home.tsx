@@ -29,9 +29,9 @@ export default function Home() {
                 if (response.ok) {
                     const newPet = await response.json();
                     setAllPets((pets: Pet[]) => [...pets, newPet]);
-                    toast.success("Pet created successfully.");
+                    toast.success("Person created successfully.");
                 } else {
-                    toast.error("Failed to create pet.");
+                    toast.error("Failed to create person.");
                 }
             })
             .catch(error => {
