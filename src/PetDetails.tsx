@@ -33,7 +33,7 @@ export default function PetDetails() {
     }, [pet]);
 
     const handleSoldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        fetch(`https://api-divine-grass-2111.fly.dev/UpdatePet`, {
+        fetch(`http://localhost:5063/UpdatePet`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
@@ -64,7 +64,7 @@ export default function PetDetails() {
     };
 
     const handleDelete = () => {
-        fetch(`https://api-divine-grass-2111.fly.dev/DeletePet?id=${pet?.id}`, {
+        fetch(`http://localhost:5063/DeletePet?id=${pet?.id}`, {
             method: 'DELETE',
             body: JSON.stringify({})
         }).then(response => {
@@ -84,7 +84,7 @@ export default function PetDetails() {
     };
 
     const handleUpdate = () => {
-        fetch(`https://api-divine-grass-2111.fly.dev/UpdatePet`, {
+        fetch(`http://localhost:5063/UpdatePet`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"

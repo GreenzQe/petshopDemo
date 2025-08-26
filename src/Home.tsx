@@ -14,7 +14,7 @@ export default function Home() {
     const [imgurl, setImgurl] = useState("");
 
     const handleCreate = () => {
-        fetch(`https://api-divine-grass-2111.fly.dev/CreatePet`, {
+        fetch(`http://localhost:5063/CreatePet`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
