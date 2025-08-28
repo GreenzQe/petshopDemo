@@ -11,6 +11,7 @@ export type PetIdParameter = {
 export interface Pet {
     id: string
     name: string
+    age: number
     breed: string
     imgurl: string
     sold: boolean
@@ -33,7 +34,7 @@ export default function PetDetails() {
     }, [pet]);
 
     const handleSoldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        fetch(`http://localhost:5063/UpdatePet`, {
+        fetch(`https://api-divine-grass-2111.fly.dev/UpdatePet`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
@@ -64,17 +65,17 @@ export default function PetDetails() {
     };
 
     const handleDelete = () => {
-        fetch(`http://localhost:5063/DeletePet?id=${pet?.id}`, {
+        fetch(`https://api-divine-grass-2111.fly.dev/DeletePet?id=${pet?.id}`, {
             method: 'DELETE',
             body: JSON.stringify({})
         }).then(response => {
-                if (response.ok) {
-                    setAllPets(pets => pets.filter(p => p.id !== pet?.id));
-                    toast.success("Pet deleted successfully.");
-                }else{
-                    toast.error("Failed to delete pet.");
-                }
-            }).catch(error => {
+            if (response.ok) {
+                setAllPets(pets => pets.filter(p => p.id !== pet?.id));
+                toast.success("Pet deleted successfully.");
+            }else{
+                toast.error("Failed to delete pet.");
+            }
+        }).catch(error => {
             console.error(error);
             toast.error(error);
         });
@@ -84,7 +85,7 @@ export default function PetDetails() {
     };
 
     const handleUpdate = () => {
-        fetch(`http://localhost:5063/UpdatePet`, {
+        fetch(`https://api-divine-grass-2111.fly.dev/UpdatePet`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
@@ -150,7 +151,7 @@ export default function PetDetails() {
                             <br/>
                             <li>
                                 <input
-                                    name="Breed"
+                                    name="Age"
                                     type="text"
                                     placeholder={breed}
                                     className="input"
@@ -182,25 +183,25 @@ export default function PetDetails() {
                     <p>Breed: {pet?.breed}</p>
                     <div>
                         <div className="flex items-center justify-center">
-                        <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4">
-                            <legend className="fieldset-legend">Sold Status</legend>
-                            <label className="label">
-                                <input type="checkbox" checked={pet?.sold} onChange={handleSoldChange} className="checkbox"/>
-                                Sold
-                            </label>
-                        </fieldset>
+                            <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4">
+                                <legend className="fieldset-legend">Sold Status</legend>
+                                <label className="label">
+                                    <input type="checkbox" checked={pet?.sold} onChange={handleSoldChange} className="checkbox"/>
+                                    Sold
+                                </label>
+                            </fieldset>
                         </div>
                     </div>
                     <div className="card-actions justify-end">
                         {(pet?.id === "1" || pet?.id === "2") ?
                             null
-                        : <button
+                            : <button
                                 name="karl"
                                 onClick={handleDelete}
                                 className="btn btn-primary"
                             >
                                 Delete
-                        </button> }
+                            </button> }
 
                     </div>
                 </div>

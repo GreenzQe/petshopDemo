@@ -7,7 +7,7 @@ export function useInitializeDataForApplication() {
     const [, setAllPets] = useAtom(AllPetsAtom)
 
     useEffect(() => {
-        fetch('http://localhost:5173/persons')
+        fetch('http://localhost:5063/api/persons')
             .then(result => {
                 result.json().then(allPets => {
                     setAllPets(allPets)

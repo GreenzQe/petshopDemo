@@ -10,19 +10,18 @@ export default function Home() {
     const navigate = useNavigate();
     const [, setAllPets] = useAtom(AllPetsAtom);
     const [name, setName] = useState("");
-    const [breed, setBreed] = useState("");
-    const [imgurl, setImgurl] = useState("");
+    const [age, setAge] = useState("");
 
     const handleCreate = () => {
-        fetch(`http://localhost:5063/CreatePet`, {
+        fetch(`http://localhost:5063/CreatePerson`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                id: "00000000-0000-0000-0000-000000000000",
                 name,
-                breed,
-                imgurl,
+                age: age
             }),
         })
             .then(async response => {
@@ -64,7 +63,7 @@ export default function Home() {
                     <div className="drawer-content">
                         <br/>
                         <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
-                            Add new pet
+                            Add new person
                         </label>
                     </div>
                     <div className="drawer-side">
@@ -74,7 +73,7 @@ export default function Home() {
                                 <input
                                     name="Name"
                                     type="text"
-                                    placeholder="Pet Name"
+                                    placeholder="Name"
                                     className="input"
                                     value={name}
                                     onChange={e => setName(e.target.value)}
@@ -83,28 +82,16 @@ export default function Home() {
                             <br/>
                             <li>
                                 <input
-                                    name="Breed"
-                                    type="text"
-                                    placeholder="Pet Breed"
+                                    name="Age"
+                                    type="number"
+                                    placeholder="Age"
                                     className="input"
-                                    value={breed}
-                                    onChange={e => setBreed(e.target.value)}
+                                    value={age}
+                                    onChange={e => setAge(e.target.value)}
                                 />
                             </li>
-                            <br/>
                             <li>
-                                <input
-                                    name="IMG"
-                                    type="text"
-                                    placeholder="Image URL"
-                                    className="input"
-                                    value={imgurl}
-                                    onChange={e => setImgurl(e.target.value)}
-                                />
-                            </li>
-                            <br/>
-                            <li>
-                            <button onClick={handleCreate}>Add Pet</button>
+                                <button onClick={handleCreate}>Add Person</button>
                             </li>
                             <br/>
                         </ul>
